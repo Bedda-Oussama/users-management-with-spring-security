@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Formation Spring Boot : Services Web</title>
+   
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+  
+
+</head>
+<body>
+<div class="container">
+		<form th:action="@{/super/user/save}" th:method="POST"  th:object=${UserVo}>
+			<h3 class="form-signin-heading" ></h3>
+			<div class="form-group">
+			<input type="text" th:field="*{id}"   id="id" name="id"   th:value="*{id}"  placeholder="ID ..."	class="form-control" readonly/>
+			</div>
+			
+			<br/>
+			  <div class="form-group">
+			<input type="text" th:field="*{username}"   id="username" name="username"   th:value="*{username}"  placeholder="Insert UserName ..."	class="form-control"/>
+			 <span  class="badge badge-danger badge-outline-danger"  th:errors="*{username}" role="alert"></span>
+			</div>
+			 <br/> 
+			  <div class="form-group">
+			<input type="password"  th:field="*{password}" id="password"  name="password"    th:value="*{password}"  placeholder="Insert Password ..." class="form-control" /> <br />
+			 <span class="badge badge-danger badge-outline-danger"  th:errors="*{password}" role="alert" ></span>
+			    </div>
+			    
+			    <div class="form-group">
+			<input type="email"   id="email"  name="email"      placeholder="Insert Email if you want notify User ..." class="form-control" /> <br />
+			    </div>
+			    
+    <div th:object="${UserVo.roles}">
+        <label>ROLES</label>
+        <select multiple class="form-control"   th:id="${UserVo.roles}"  name="roles" >
+             <option value="">Select Roles</option>
+            <option  th:each="rolevoo : ${RoleVo}"
+                    th:value="${rolevoo.role}"   
+                    th:text="${rolevoo.role}">
+            </option>
+         
+        </select>
+    </div>
+			
+
+    
+
+
+			
+			
+			 
+<!-- 			<input type="text" id="salary" name="salary" th:placeholder="Salary" class="form-control" /> <br /> 
+ -->				
+			<div align="center" th:if="${param.error}">
+				<p style="font-size: 20; color: #FF1C19;">param error</p>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Ajouter"></button>
+		</form>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+
+
+
+</html>
