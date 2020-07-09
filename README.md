@@ -1,5 +1,5 @@
 # users-management-with-spring-security
-this is a awesome tasks for manage Users in spring boot app using spring-security with userDetaisService auth provider
+this is a awesome project for manage Users in spring boot app using spring-security with userDetaisService auth provider
 
 some features  :
 
